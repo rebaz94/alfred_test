@@ -17,5 +17,4 @@ COPY --from=build /runtime/ /
 COPY --from=build /app/bin/server /app/bin/
 
 # Start server.
-EXPOSE 3000
 CMD ["/app/bin/server"]
