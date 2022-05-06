@@ -15,3 +15,4 @@ And test the server using
 ```
 wrk -t12 -c512 -d15s http://localhost:3000/
 ```
+deploy
