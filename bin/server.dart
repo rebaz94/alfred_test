@@ -24,7 +24,7 @@ Future<void> startInstance(dynamic message) async {
     for (int i=0; i < 10000; i++) {
       u += 'h$i';
     }
-   return u;
+   return {'v': u};
     
     });
    
