@@ -18,7 +18,7 @@ Future<void> startInstance(dynamic message) async {
 
   app.get('/', (req, res) => '');
 
-  app.get('/user', (req, res) {
+  app.get('/user', (req, res) async {
     final res = await Future.delayed(Duration(seconds: 1)).
       then(() {
        String u = '';
