@@ -25,11 +25,36 @@ Future<void> startInstance(dynamic message) async {
     }
    return u;
   },);
+  
+  app..get(
+      '/test-old',
+      handler: (req, res) async {
+        String v = '';
+        for (int i = 0; i < 10000; i++) {
+          v += '$i';
+        }
+        return v;
+      },
+    )
+    ..get(
+      '/test-new',
+      handler: (req, res) async {
+        final s = StringBuffer();
+        s.writeAll(generate());
+        return s.toString();
+      },
+    );
  
 
   app.get('/user/:id', (req, res) => req.params['id']);
 
   await app.listen(3000); //Listening on port 3000
+}
+
+Iterable<int> generate() sync* {
+  for (int i = 0; i < 10000; i++) {
+    yield i;
+  }
 }
 
 /// Simple function to prevent linting errors, can be ignored
