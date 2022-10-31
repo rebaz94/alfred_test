@@ -4,10 +4,10 @@ import 'dart:isolate';
 import 'package:alfred/alfred.dart';
 
 void main(List<String> args) async {
-  print('starting ${Platform.numberOfProcessors} instances');
-  for (var i = 0; i < Platform.numberOfProcessors - 1; i++) {
-    unawaited(Isolate.spawn(startInstance, ''));
-  }
+//   print('starting ${Platform.numberOfProcessors} instances');
+//   for (var i = 0; i < Platform.numberOfProcessors - 1; i++) {
+//     unawaited(Isolate.spawn(startInstance, ''));
+//   }
   // Start listening on this isolate also
   await startInstance(null);
 }
