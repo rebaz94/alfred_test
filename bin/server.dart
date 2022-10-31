@@ -17,7 +17,13 @@ Future<void> startInstance(dynamic message) async {
 
   app.get('/', (req, res) => '');
 
-  app.get('/user', (req, res) => 'rebaz');
+  app.get('/user', (req, res) {
+    String u = '';
+    for (int i=0; i < 1000; i++) {
+      u += 'h$i';
+    }
+    return u;
+  },);
 
   app.get('/user/:id', (req, res) => req.params['id']);
 
