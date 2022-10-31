@@ -17,18 +17,10 @@ Future<void> startInstance(dynamic message) async {
   final app = Alfred();
 
   app.get('/', (req, res) => '');
-
-  app.get('/user', (req, res) async {
-     String u = '';
-    for (int i=0; i < 10000; i++) {
-      u += 'h$i';
-    }
-   return u;
-  },);
   
   app..get(
       '/test-old',
-      handler: (req, res) async {
+       (req, res) async {
         String v = '';
         for (int i = 0; i < 10000; i++) {
           v += '$i';
@@ -38,7 +30,7 @@ Future<void> startInstance(dynamic message) async {
     )
     ..get(
       '/test-new',
-      handler: (req, res) async {
+      (req, res) async {
         final s = StringBuffer();
         s.writeAll(generate());
         return s.toString();
