@@ -27,9 +27,9 @@ Future<void> startInstance(dynamic message) async {
    return u;
     
     });
-   
+    return res;
   },);
-  return res;
+ 
 
   app.get('/user/:id', (req, res) => req.params['id']);
 
