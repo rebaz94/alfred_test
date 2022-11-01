@@ -35,7 +35,15 @@ Future<void> startInstance(dynamic message) async {
         s.writeAll(generate());
         return s.toString();
       },
-    );
+    )
+    ..get(
+      '/env',
+      (req, res) async {
+        final e = Platform.environment;
+        return e.entries.map((e) => '${e.key}: ${e.value}').toList().join('\n');
+      },
+    )
+    ;
  
 
   app.get('/user/:id', (req, res) => req.params['id']);
